@@ -1,0 +1,20 @@
+[
+	{
+		"id": 1,
+		"title": "¡Socorro! de Elsa Bornemann",
+		"description": "Doce cuentos de miedo.",
+		"price": 2500,
+		"thumbnail": "https://www.loqueleo.com/ar/uploads/2015/11/resized/800_9789504644163.jpg",
+		"code": 87,
+		"stock": 200
+	},
+	{
+		"id": 2,
+		"title": "El libro de los chicos enamorados de Elsa Bornemann",
+		"description": "Poemas que cantan o lloran las distintas sensaciones que produce el amor-niño",
+		"price": 1500,
+		"thumbnail": "https://www.loqueleo.com/ar/uploads/2015/11/resized/800_9789504640547.jpg",
+		"code": 27,
+		"stock": 2018
+	}
+]
