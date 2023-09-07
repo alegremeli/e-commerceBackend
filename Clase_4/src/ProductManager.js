@@ -1,4 +1,4 @@
-const fs = require("fs");
+import fs from "fs";
 
 class ProductManager{
 
@@ -110,24 +110,25 @@ class ProductManager{
     }
 }
 
-    async function operationsProductManager() {
-    try {
-        const productManager = new ProductManager("./products.json");
-        // await productManager.addProduct("¡Socorro! de Elsa Bornemann","Doce cuentos de miedo.",1500,"https://www.loqueleo.com/ar/uploads/2015/11/resized/800_9789504644163.jpg",87,200);
-        // await productManager.addProduct("El libro de los chicos enamorados de Elsa Bornemann","Poemas que cantan o lloran las distintas sensaciones que produce el amor-niño",1500,"https://www.loqueleo.com/ar/uploads/2015/11/resized/800_9789504640547.jpg",27,2018);
+    // async function operationsProductManager() {
+    // try {
+    //     const productManager = new ProductManager("./products.json");
+    //     await productManager.addProduct("¡Socorro! de Elsa Bornemann","Doce cuentos de miedo.",1500,"https://www.loqueleo.com/ar/uploads/2015/11/resized/800_9789504644163.jpg",87,200);
+    //     await productManager.addProduct("El libro de los chicos enamorados de Elsa Bornemann","Poemas que cantan o lloran las distintas sensaciones que produce el amor-niño",1500,"https://www.loqueleo.com/ar/uploads/2015/11/resized/800_9789504640547.jpg",27,2018);
         
-        await productManager.getProducts();
-        console.log("Lista de productos:");
+        // await productManager.getProducts();
+        // console.log("Lista de productos:");
 
-        const productById = await productManager.getProductById(2);
-        console.log("Producto con ID 2:", productById);
+        // const productById = await productManager.getProductById(2);
+        // console.log("Producto con ID 2:", productById);
 
-        await productManager.updateProduct(1, {price: 2500}); 
+        // await productManager.updateProduct(1, {price: 2500}); 
 
         // await productManager.deleteProduct(2);
         // console.log("Producto eliminado");
-    } catch (error) {
-        console.log("Error:", error.message);
-    }
-}
-operationsProductManager();
+//     } catch (error) {
+//         console.log("Error:", error.message);
+//     }
+// }
+// operationsProductManager();
+export default ProductManager;
