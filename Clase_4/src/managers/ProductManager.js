@@ -1,27 +1,32 @@
 import fs from "fs";
 
-class ProductManager{
+export class ProductManager{
 
     constructor(filePath){
         this.filePath = filePath;
-        this.lastId = 0; 
     };
-
-    async addProduct(title, description, price, thumbnail, code, stock) {
+    
+    async addProduct(product) {
     try {
+        const { title, description, code, price, stock, category, thumbnails } = product;
+        if (!title || !description || !code || !price || !stock || !category) {
+            throw new Error("Faltan campos obligatorios.");
+        }
         //Lee el archivo
         const archive = await fs.promises.readFile(this.filePath,"utf-8")
-        this.lastId++; //Incrementa el último ID
+        const productsJson = JSON.parse(archive);
+        const newId = this.uniqueId(productsJson);
         const newProduct = {
-            id: this.lastId,//Asigna el último ID a este producto
+            id: newId,
             title,
             description,
-            price,
-            thumbnail,
             code,
-            stock
+            price,
+            status: true,
+            stock,
+            category,
+            thumbnails: thumbnails || [],
         };
-        const productsJson = JSON.parse(archive)
         productsJson.push(newProduct);
         //Sobrescribe el archivo con los productos actualizados
         await fs.promises.writeFile(this.filePath, JSON.stringify(productsJson,null,"\t"))
@@ -29,6 +34,13 @@ class ProductManager{
         console.log(error.message);
         throw error;
     }
+    }
+
+    uniqueId(products) {
+        //Encuentra el ID máximo actual en la lista de productos
+        const maxId = products.reduce((max, product) => (product.id > max ? product.id : max), 0);
+        //Genera un nuevo ID único mayor que el máximo actual
+        return maxId + 1;
     }
 
     fileExist(){
@@ -51,7 +63,6 @@ class ProductManager{
             throw error;  
         }
     }
-
     async getProductById(id) {
         try {
             const archive = await fs.promises.readFile(this.filePath, "utf-8");
@@ -64,7 +75,6 @@ class ProductManager{
         }
     }
     
-
     async updateProduct(id, update){
         try {
             const archive = await fs.promises.readFile(this.filePath, "utf-8");
@@ -88,7 +98,6 @@ class ProductManager{
             throw error;
         }
     }
-
     async deleteProduct(id) {
         try {
             const archive = await fs.promises.readFile(this.filePath, "utf-8");
@@ -109,26 +118,4 @@ class ProductManager{
         }
     }
 }
-
-    // async function operationsProductManager() {
-    // try {
-    //     const productManager = new ProductManager("./products.json");
-    //     await productManager.addProduct("¡Socorro! de Elsa Bornemann","Doce cuentos de miedo.",1500,"https://www.loqueleo.com/ar/uploads/2015/11/resized/800_9789504644163.jpg",87,200);
-    //     await productManager.addProduct("El libro de los chicos enamorados de Elsa Bornemann","Poemas que cantan o lloran las distintas sensaciones que produce el amor-niño",1500,"https://www.loqueleo.com/ar/uploads/2015/11/resized/800_9789504640547.jpg",27,2018);
-        
-        // await productManager.getProducts();
-        // console.log("Lista de productos:");
-
-        // const productById = await productManager.getProductById(2);
-        // console.log("Producto con ID 2:", productById);
-
-        // await productManager.updateProduct(1, {price: 2500}); 
-
-        // await productManager.deleteProduct(2);
-        // console.log("Producto eliminado");
-//     } catch (error) {
-//         console.log("Error:", error.message);
-//     }
-// }
-// operationsProductManager();
 export default ProductManager;
