@@ -41,7 +41,7 @@ export class CartManager{
             //Escribe los cambios del nuevo carrito en el archivo JSON
             await fs.promises.writeFile(this.filePath, JSON.stringify(carts, null, "\t"));
             //Retorna el ID del nuevo carrito
-            return newId;
+            return newCart;
         } catch (error) {
             console.log(error.message);
             throw error;
@@ -49,31 +49,36 @@ export class CartManager{
     }
 
     uniqueId(carts) {
-        //Encuentra el ID máximo actual en la lista de productos
-        const maxId = carts.reduce((max, product) => (product.id > max ? product.id : max), 0);
-        //Genera un nuevo ID único mayor que el máximo actual
-        return maxId + 1;
+        let newId;
+        if (carts.length === 0) {
+        newId = 1;
+        } else {
+        newId = carts[carts.length - 1].id + 1;
+        }
+        return newId;
     }
 
     async addToCart(cartId, productId, quantity) {
         try {
             const archive = await fs.promises.readFile(this.filePath, "utf-8");
             const carts = JSON.parse(archive);
-            const cart = carts.find((cart) => cart.id === cartId);
-            
+            const cart = carts.find((cart) => cart.id === parseInt(cartId));
             if (cart) {
-                const existingProduct = cart.products.find((product) => product.productId === productId);
+                const existingProduct = cart.products.find((product) => product.id === productId);
                 if (existingProduct) {
                     existingProduct.quantity += quantity;
                 } else {
-                    cart.products.push({ product: productId, quantity });
+                    cart.products.push({ 
+                        id: productId, 
+                        quantity: quantity 
+                    });
                 }
                 await fs.promises.writeFile(this.filePath, JSON.stringify(carts, null, "\t"));
             } else {
                 throw new Error("El carrito no existe.");
             }
         } catch (error) {
-            console.log(error.message);
+            console.log("Error en addToCart:", error.message); 
             throw error;
         }
     }
