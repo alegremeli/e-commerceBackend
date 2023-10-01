@@ -19,98 +19,13 @@
 	},
 	{
 		"id": 3,
-		"title": "El libro de los chicos enamorados de Elsa Bornemann",
-		"description": "Poemas que cantan o lloran las distintas sensaciones que produce el amor-niño",
+		"title": "Bajo el cielo del sur",
+		"description": "La continuación de \"Los ojos del perro siberiano\".",
+		"code": "2006",
 		"price": 1500,
-		"thumbnail": "https://www.loqueleo.com/ar/uploads/2015/11/resized/800_9789504640547.jpg",
-		"code": 50,
-		"stock": 2018
-	},
-	{
-		"id": 4,
-		"title": "El libro de los chicos enamorados de Elsa Bornemann",
-		"description": "Poemas que cantan o lloran las distintas sensaciones que produce el amor-niño",
-		"price": 1500,
-		"thumbnail": "https://www.loqueleo.com/ar/uploads/2015/11/resized/800_9789504640547.jpg",
-		"code": 12,
-		"stock": 2018
-	},
-	{
-		"id": 5,
-		"title": "El libro de los chicos enamorados de Elsa Bornemann",
-		"description": "Poemas que cantan o lloran las distintas sensaciones que produce el amor-niño",
-		"price": 1500,
-		"thumbnail": "https://www.loqueleo.com/ar/uploads/2015/11/resized/800_9789504640547.jpg",
-		"code": 15,
-		"stock": 2018
-	},
-	{
-		"id": 6,
-		"title": "El libro de los chicos enamorados de Elsa Bornemann",
-		"description": "Poemas que cantan o lloran las distintas sensaciones que produce el amor-niño",
-		"price": 1500,
-		"thumbnail": "https://www.loqueleo.com/ar/uploads/2015/11/resized/800_9789504640547.jpg",
-		"code": 73,
-		"stock": 2018
-	},
-	{
-		"id": 7,
-		"title": "El libro de los chicos enamorados de Elsa Bornemann",
-		"description": "Poemas que cantan o lloran las distintas sensaciones que produce el amor-niño",
-		"price": 1500,
-		"thumbnail": "https://www.loqueleo.com/ar/uploads/2015/11/resized/800_9789504640547.jpg",
-		"code": 20,
-		"stock": 2018
-	},
-	{
-		"id": 8,
-		"title": "El libro de los chicos enamorados de Elsa Bornemann",
-		"description": "Poemas que cantan o lloran las distintas sensaciones que produce el amor-niño",
-		"price": 1500,
-		"thumbnail": "https://www.loqueleo.com/ar/uploads/2015/11/resized/800_9789504640547.jpg",
-		"code": 15,
-		"stock": 2018
-	},
-	{
-		"id": 9,
-		"title": "El libro de los chicos enamorados de Elsa Bornemann",
-		"description": "Poemas que cantan o lloran las distintas sensaciones que produce el amor-niño",
-		"price": 1500,
-		"thumbnail": "https://www.loqueleo.com/ar/uploads/2015/11/resized/800_9789504640547.jpg",
-		"code": 30,
-		"stock": 2018
-	},
-	{
-		"id": 10,
-		"title": "El libro de los chicos enamorados de Elsa Bornemann",
-		"description": "Poemas que cantan o lloran las distintas sensaciones que produce el amor-niño",
-		"code": 89,
-		"price": 3500,
 		"status": true,
-		"stock": 25,
-		"category": "Libros infantiles",
-		"thumbnails": "https://www.loqueleo.com/ar/uploads/2015/11/resized/800_9789504640547.jpg"
-	},
-	{
-		"id": 11,
-		"title": "El libro de los chicos enamorados de Elsa Bornemann",
-		"description": "Poemas que cantan o lloran las distintas sensaciones que produce el amor-niño",
-		"code": 89,
-		"price": 3500,
-		"status": true,
-		"stock": 25,
-		"category": "Libros infantiles",
-		"thumbnails": "https://www.loqueleo.com/ar/uploads/2015/11/resized/800_9789504640547.jpg"
-	},
-	{
-		"id": 12,
-		"title": "El libro de los chicos enamorados de Elsa Bornemann",
-		"description": "Poemas que cantan o lloran las distintas sensaciones que produce el amor-niño",
-		"code": 87,
-		"price": 3500,
-		"status": true,
-		"stock": 25,
-		"category": "Libros infantiles",
-		"thumbnails": "https://www.loqueleo.com/ar/uploads/2015/11/resized/800_9789504640547.jpg"
+		"stock": "12",
+		"category": "Libros para jovenes adultos",
+		"thumbnails": []
 	}
 ]
