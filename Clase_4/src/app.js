@@ -3,11 +3,13 @@ import { __dirname } from "./utils.js";
 import path from"path";
 import { engine } from "express-handlebars";
 import { Server } from "socket.io";
-
-import { productManager } from "./managers/index.js";
+import { connectDB } from "./config/dbConnection.js";
+import { productManager } from "./dao/index.js";
+import { productsFsRouter } from "./routes/productsFs.routes.js";
+import { cartsFsRouter } from "./routes/cartsFs.routes.js";
+import { viewsFsRouter}  from "./routes/viewsFs.routes.js";
 import { productsRouter } from "./routes/products.routes.js";
-import { cartsRouter } from "./routes/carts.routes.js";
-import {viewsRouter} from "./routes/views.routes.js"
+import { chatService } from "./dao/index.js";
 
 const port = 8080;
 const app = express();
@@ -20,6 +22,9 @@ const httpServer = app.listen(port,()=>console.log(`El servidor se está ejecuta
 //Configuración de Websocket
 const io = new Server(httpServer);
 
+//Conexión con MongoDB Atlas
+connectDB();
+
 //Configuración de Handlebars
 app.engine('.hbs', engine({extname: '.hbs'}));
 app.set('view engine', '.hbs');
@@ -27,9 +32,12 @@ app.set('views', path.join(__dirname,"/views"));
 
 //Configuración de Routes
 app.use(express.json());
-app.use("/api/products", productsRouter);
-app.use("/api/carts", cartsRouter);
-app.use(viewsRouter);
+// app.use("/api/products", productsFsRouter);
+// app.use("/api/carts", cartsFsRouter);
+// app.use(viewsFsRouter);
+
+//Configuración de Routes con MongoDB
+app.use("/api/products", productsRouter); 
 
 //Socket server
 //Recibe la conexión del cliente

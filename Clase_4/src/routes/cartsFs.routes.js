@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { cartManager } from "../managers/index.js";
+import { cartManager } from "../dao/index.js";
 
 const router = Router();
 
@@ -52,5 +52,5 @@ router.post("/:cid/product/:pid", async (req, res) => {
 });
 
 
-export { router as cartsRouter };
+export { router as cartsFsRouter };
 

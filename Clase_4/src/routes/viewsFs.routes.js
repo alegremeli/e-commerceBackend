@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { productManager } from "../managers/index.js";
+import { productManager } from "../dao/index.js";
 
 const router = Router();
 
@@ -14,4 +14,4 @@ router.get("/realtimeproducts",(req,res)=>{
     res.render("realTimeProducts");
 })
 
-export {router as viewsRouter};
+export {router as viewsFsRouter};
